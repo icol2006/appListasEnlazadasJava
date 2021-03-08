@@ -71,6 +71,21 @@ public class DoublyLinkedList {
         return reco;
     }
     
+     public Node replace(String search, String newValue) {
+        
+        Node reco = head;
+        while (reco != null) {
+            if (reco.getValue().equals(search)) {
+                reco.value=newValue;
+                break;
+            } else {
+                reco = reco.getNextElement();
+            }
+        }
+        
+        return reco;
+    }
+    
     public void showByPosition(int pos) {
         if (pos <= count()) {
             String informacion;

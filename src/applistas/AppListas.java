@@ -18,13 +18,18 @@ public class AppListas {
         list.addLast("11");
         list.addLast("12");
 
+        
         list.print();
         list.count();
+        
+        list.replace("12", "10zy");
+        list.print();
         DoublyLinkedList list2 = new DoublyLinkedList();
         list2.addLast("109");
         list2.addLast("107");
-        list.concatenateList(list, list2);
-        list.print();
+        
+        //list.concatenateList(list, list2);
+       // list.print();
        // list.deleteNode("13");
     
         //list.exist("10d");
