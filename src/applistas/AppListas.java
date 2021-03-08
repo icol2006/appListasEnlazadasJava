@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package applistas;
 
+package applistas;
 
 public class AppListas {
 
@@ -13,32 +8,49 @@ public class AppListas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DoublyLinkedList list = new DoublyLinkedList();
-        list.addLast("10");
-        list.addLast("11");
-        list.addLast("12");
+        ListaDobleEnlazada list = new ListaDobleEnlazada();
+        list.agregar("10");
+        list.agregar("11");
+        list.agregar("12");
 
-        
-        list.print();
-        list.count();
-        
-        list.replace("12", "10zy");
-        list.print();
-        DoublyLinkedList list2 = new DoublyLinkedList();
-        list2.addLast("109");
-        list2.addLast("107");
-        
+        list.imprimir();
+
+        //Contar elementos
+        list.contarElementos();
+
+        //Mostrar elemento por posicion
+        System.out.println("Mostrar elemento por posicion (0)");
+        list.mostrarPorPosicion(2);
+
+        System.out.println("Existe 10z");
+        list.existeElemento("10z");
+
+        System.out.println("Agregar 14");
+        list.agregar("14");
+        list.imprimir();
+
+        System.out.println("Extraer posicion 0");
+        list.extraerPorPosicion(0);
+        list.imprimir();
+
+        ListaDobleEnlazada list2 = new ListaDobleEnlazada();
+        list2.agregar("109");
+        list2.agregar("107");
+
+        System.out.println("Unir listas");
+        list.concatenarListas(list, list2);
+        list.imprimir();
+
+        System.out.println("Remplazar 10 por 10zy");
+        list.remplazarElemento("12", "10zy");
+        list.imprimir();
+
         //list.concatenateList(list, list2);
-       // list.print();
-       // list.deleteNode("13");
-    
+        // list.print();
+        // list.deleteNode("13");
         //list.exist("10d");
-         // list.showByPosition(44);
         //list.extract(6);
         //list.print();
-      
-        
-                
     }
-    
+
 }
