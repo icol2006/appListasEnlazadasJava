@@ -23,9 +23,13 @@ public class AppListas {
         list.addFirst("8");
         list.print();
         list.count();
+        list.deleteNode("13");
+           list.print();
         //list.exist("10d");
-        list.extract(0);
-        list.print();
+          list.showByPosition(44);
+        //list.extract(6);
+        //list.print();
+      
         
                 
     }

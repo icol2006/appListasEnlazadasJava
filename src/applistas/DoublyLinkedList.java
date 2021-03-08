@@ -54,33 +54,100 @@ public class DoublyLinkedList {
                 reco = reco.getNextElement();
             }
         }
-       System.out.println(res);
+        System.out.println(res);
     }
     
-    public String extract (int pos) {
-        if (pos <= count())    {
+     public Node find(String x) {
+
+        Node reco = head;
+        while (reco != null) {
+            if (reco.getValue().equals(x)) {
+                break;
+            } else {
+                reco = reco.getNextElement();
+            }
+        }
+        
+        return reco;
+    }
+    
+    
+    public void showByPosition(int pos) {
+        if (pos <= count()) {
             String informacion;
-            if (pos == 1) {
+            if (pos == 0) {
                 informacion = head.value;
-                head = head.getNextElement();
-                if (head!=null)
-                    head.previousElement=null;
             } else {
                 Node reco;
                 reco = head;
-                for (int f = 1 ; f <= pos - 2 ; f++)
+                for (int f = 0; f <= pos - 2; f++) {
                     reco = reco.getNextElement();
+                }
+                informacion = reco.value;
+            }
+            System.out.println(informacion);
+        }
+
+    }
+
+    public void extractByPosition(int pos) {
+        if (pos <= count()) {
+            String informacion;
+            if (pos == 0) {
+                informacion = head.value;
+                head = head.getNextElement();
+                if (head != null) {
+                    head.previousElement = null;
+                }
+            } else {
+                Node reco;
+                reco = head;
+                for (int f = 0; f <= pos - 2; f++) {
+                    reco = reco.getNextElement();
+                }
                 Node prox = reco.getNextElement();
                 reco.nextElement = prox.nextElement;
-                Node siguiente=prox.getNextElement();
-                if (siguiente!=null)
-                    siguiente.previousElement=reco;
+                Node siguiente = prox.getNextElement();
+                if (siguiente != null) {
+                    siguiente.previousElement = reco;
+                }
                 informacion = prox.value;
             }
-            return informacion;
+            System.out.println(informacion);
         }
-        else
-            return Integer.MAX_VALUE+"";
+
+    }
+    
+     // Function to delete a node in a Doubly Linked List.
+    // head_ref --> pointer to head node pointer.
+    // del --> data of node to be deleted.
+    void deleteNode(String value)
+    {
+        Node del=find(value);
+        // Base case
+        if (head == null || del == null) {
+            return;
+        }
+ 
+        // If node to be deleted is head node
+        if (head == del) {
+            head = del.nextElement;
+        }
+ 
+        // Change next only if node to be deleted
+        // is NOT the last node
+        if (del.nextElement != null) {
+            del.nextElement.previousElement = del.previousElement;
+        }
+ 
+        // Change prev only if node to be deleted
+        // is NOT the first node
+        if (del.previousElement != null) {
+            del.previousElement.nextElement = del.nextElement;
+        }
+ 
+        // Finally, free the memory occupied by del
+        return;
     }
 
     public void print() {
